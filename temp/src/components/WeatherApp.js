@@ -14,10 +14,10 @@ const WeatherApp = ({ dt, temp_min, temp_max, main, icon }) => {
                     {date.toLocaleDateString()}-{date.toLocaleTimeString()}
                 </p>
                 <p>
-                    Min: {temp_min}
+                    Min Temp: {Math.floor(temp_min-273.15,2)}°C
                 </p>
                 <p>
-                    Max: {temp_max}
+                    Max Temp: {Math.floor(temp_max-273.15,2)}°C
                 </p>
             </Card.Body>
         </Card>
