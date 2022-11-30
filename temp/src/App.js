@@ -2,20 +2,39 @@ import React from "react";
 
 import CitySelector from "./components/CitySelector";
 import WeatherList from "./components/WeatherList";
-
+import ImgError from "./img/cancelar.png";
 import './App.css';
-import { Container } from 'react-bootstrap';
+import { Container, Card, Row, Col } from 'react-bootstrap';
 
 import UseFetch from './hooks/UseFetch';
 import { API_KEY, API_BASE_URL } from "./apis/config";
-
+document.title = "WeatherApp";
 const App = () => {
   const { data, error, isLoading, setUrl } = UseFetch();
-
+  const error_es = error === "city not found" ? "Ciudad no encontrada" : error === "Nothing to geocode" ? "No hay nada que geocodificar" : error;
   const getContent = () => {
-    if (error) return <h2>Error when fetching: {error} </h2>
-    if (!data && isLoading) return <h2>Loading...</h2>
+    if (error)
+      return (
+        <Card>
+          <Card.Body>
+            <Row>
+              <Col>
+                <Card.Img variant="top" src={ImgError} />
+              </Col>
+              <Col style={{ marginLeft: "-75%" }}>
+                <Card.Title>Lo sentimos, ha ocurrido un error</Card.Title>
+                <Card.Text>
+                  {error_es}
+                </Card.Text>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+
+      )
+    if (!data && isLoading) return <h2>Cargando...</h2>
     if (!data) return null;
+    console.log(data.list);
     return <WeatherList weathers={data.list} />
   };
 

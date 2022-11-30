@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const UseFetch = (initialUrl) => {
 
@@ -13,7 +13,7 @@ const UseFetch = (initialUrl) => {
 
         setData(null);
         setError(null);
-
+        document.title = "Cargando...";
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
@@ -29,6 +29,7 @@ const UseFetch = (initialUrl) => {
                 setError(error);
             });
     }, [url]);
+    document.title = "WeatherApp";
     return { data, error, isLoading, setUrl };
 };
 
