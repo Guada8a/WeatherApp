@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+/* App.css.map */
+.row {
+	justify-content: center;
+	margin: 15px 0;
+}
+.card {
+	border-radius: 30px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 15px;
+}
+.card-img-top,
+img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+.card-img-left {
+	width: 100%;
+	height: 130px;
+	object-fit: cover;
+	border-radius: 30px 30px 0 0;
+}
+.card-img {
+	border-radius: 30px 30px 0 0;
+	width: 20vw;
+}
+h1 {
+	font-size: 2.8rem;
+	font-weight: 500;
+}
+#header {
+	background-color: #202529;
+	color: white;
+	padding: 20px 0;
+}
+.busqueda {
+	margin-top: 90px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-floating>label {
+    left: 0.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.card-img-overlay> .card-title> .badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.25rem 0.4rem;
+}
+
+/* Difuminar la imagen */
+.card-img-left {
+    /* Inferior */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 25px));
+}
+
+#header {
+    background-color: #202529;
+    color: white;
+    padding: 20px 0 0 0;
+}
+#header .form-floating>.form-control:focus~label{
+    color: #fff;
+    background-color: transparent !important;
+}
+#header .form-floating>.form-control~label{
+    color: #fff;
+    background-color: transparent !important;
+}
+#header .form-floating>.form-control:focus~label::after{
+    background-color: transparent !important;
+}
+#header .form-floating>.form-control~label::after{
+    background-color: transparent !important;
+}
+.form-floating>.form-control-plaintext~label, 
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label, 
+.form-floating>.form-select~label {
+    color: rgba(var(--bs-body-color-rgb),.65);
+    transform: scale(.85) translateY(-1.2rem) translateX(-1.5rem);
   }
+#header .form-control {
+    background-color: #202529;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header .btn-dark {
+    border:#fff solid 1px;
 }
